@@ -8,6 +8,7 @@ const SECRET = process.env.JWT_SECRET || "your_jwt_secret";
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+        console.log("Received register:", req.body);
 
     const userExists = await User.findOne({ email });
     if (userExists)
