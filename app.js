@@ -80,11 +80,11 @@ app.use((req, res, next) => {
       'http://localhost:8081',
       'http://localhost:3000',
       'http://localhost:19006',
-      'http://10.87.18.160:8081',
+      'http://192.168.100.190:8081',
       'http://10.87.18.160:19000',
       'http://10.87.18.160:19006',
       'http://127.0.0.1:8081',
-      'exp://10.87.18.160:8081',
+      'exp://192.168.100.190:8081',
       'exp://localhost:8081'
     ];
     
@@ -140,11 +140,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth.routes');
+const chatRoutes = require('./routes/textChat.routes');
 
 // Mount routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter); // Routes: /auth/register, /auth/login, etc.
+app.use('/chat', chatRoutes); // Routes: /chat/history, /chat/send
 
 // Health check endpoint để test CORS
 app.get('/health', (req, res) => {
