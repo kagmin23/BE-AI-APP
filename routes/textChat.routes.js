@@ -1,14 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const {
   getChatHistory,
-  sendPromptToAI,
-} = require('../controllers/textChat.controller');
+  getChatHistoryById,
+  sendMessage,
+  updateChat,
+  deleteChat,
+} = require("../controllers/textChat.controller");
 
-// Route GET /text-to-text
-router.get('/text-to-text', getChatHistory);
+router.get("/history", getChatHistory);
+router.get("/history/:id", getChatHistoryById);
+router.post("/chat", sendMessage);
+router.put("/:chatId", updateChat);
+router.delete("/:chatId", deleteChat);
 
-// Route POST /text-to-text
-router.post('/text-to-text', sendPromptToAI);
 
 module.exports = router;
