@@ -151,6 +151,7 @@ const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth.routes");
 const chatRoutes = require("./routes/textChat.routes");
 const textImageRoutes = require("./routes/textImage.routes");
+const cameraRoutes = require("./routes/camera.routes");
 
 // Mount routes
 app.use("/", indexRouter);
@@ -158,6 +159,7 @@ app.use("/users", usersRouter);
 app.use("/auth", authRouter); // Routes: /auth/register, /auth/login, etc.
 app.use("/chatbotAI", chatRoutes); // Routes: /chat/history, /chat/send
 app.use("/chatbotAI", textImageRoutes);
+app.use("/camera", cameraRoutes);
 
 // Health check endpoint để test CORS
 app.get("/health", (req, res) => {
